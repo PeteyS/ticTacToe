@@ -16,18 +16,22 @@ let erase = document.querySelector('#erase');
 let rainbow = document.querySelector('#rgb');
 let shader = document.querySelector('#shader');
 
+let active = document.querySelector('#active');
+let unactive = document.querySelector('#unactive');
 
 setGrid();
 
 canvas.addEventListener('click', ()=>{
     if (onOff == 'on'){
         onOff = 'off';
-        grid.style.borderColor = 'red';
+        unactive.style.color = 'red';
+        active.style.color = 'black';
         onSwitch.style.background = 'black';
     }
     else{
         onOff = 'on';
-        grid.style.borderColor = 'green';
+        unactive.style.color = 'black';
+        active.style.color = 'green';
         onSwitch.style.background = 'aqua';
     }
 });
