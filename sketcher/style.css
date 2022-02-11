@@ -1,0 +1,100 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+
+
+
+#topBar{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#chooseColour,#shader,#rgb,#erase,#reset{
+    width: 10%;
+    height: 50%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+#shader:hover,#rgb:hover,#erase:hover,#chooseColour:hover{
+    transform: scale(1.2);
+    border: solid 1px;
+    border-color: black;
+}
+#shader:active,#rgb:active,#erase:active,#chooseColour:active{
+    transform: scale(1);    
+}
+#color{
+    padding: 0;
+    border:none;
+}
+
+
+
+
+
+#container{
+    flex: 1;
+    display: flex;
+}
+#sideBar{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+#big,#medium,#small{
+    height: 20%;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#big:hover,#medium:hover,#small:hover{
+    transform: scale(1.2);
+    border:solid 1px;
+    border-color: black;
+}
+#big:active,#medium:active,#small:active{
+    transform: scale(1.1);
+}
+
+
+
+
+#mainContent{
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+
+}
+#canvas{
+    height: 600px;
+    width: 600px;
+    display: grid;
+    border: solid 2px;
+    border-color:green;
+}
+#title{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
