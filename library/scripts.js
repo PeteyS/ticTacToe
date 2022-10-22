@@ -1,10 +1,10 @@
 let myLibrary = [];
+let grid = document.querySelector('#grid');
 let form = document.querySelector('#popupForm');
 let submitButton = document.querySelector('#submitBtn');
 let author = document.querySelector('#author');
 let pages = document.querySelector('#pages');
 let title = document.querySelector('#title');
-let readStatus = document.querySelector('#status');
 
 function openForm() {
     form.style.display = "block";
@@ -14,39 +14,64 @@ function closeForm() {
     form.style.display = "none";
 }
 
-function book (title,author,pages,read){
+function book (title,author,pages,index){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
-    this.info = function (){
-        return `The ${title} by ${author}, ${pages}, ${read}`; 
-        }
+    this.index = index
 }
 
-function addBookToLibrary(book){
-    myLibrary.push(book);
-
+function create (elemnt){
+    return document.createElement(elemnt);
 }
 
-function refreshGrid(){
+function populateGrid(){
+    grid.innerHTML = ""; //make grid empty for the for loop
 
+    for(let i = 0; i<myLibrary.length;i++){
+        let newCard = create('div');
+        let cardTitle = create('p');
+        let cardAuthor = create('p');
+        let cardPages = create('p');
+
+        let isBookRead = create('p');
+        let formatDiv = create('div');
+        let cardReadStatus = create('INPUT');
+        cardReadStatus.setAttribute('type', 'checkbox');
+        isBookRead.textContent = "Read?";
+        formatDiv.appendChild(isBookRead);
+        formatDiv.appendChild(cardReadStatus);
+        formatDiv.style.display = 'flex';
+
+        let removeButton = create('button');
+        removeButton.dataset.index = i;
+        removeButton.classList.add('deleteBtn');
+
+        cardTitle.textContent = myLibrary[i].title;
+        cardAuthor.textContent = myLibrary[i].author;
+        cardPages.textContent = myLibrary[i].pages;
+    
+        newCard.appendChild(cardTitle);
+        newCard.appendChild(cardAuthor);
+        newCard.appendChild(cardPages);
+        newCard.appendChild(formatDiv);
+        newCard.appendChild(removeButton);
+
+        newCard.classList.add('cards');
+    
+        grid.appendChild(newCard);
+
+        removeButton.addEventListener('click', () =>{
+            console.log(removeButton.dataset.index);
+            myLibrary.splice(removeButton.dataset.index,1);
+            populateGrid();
+        });
+    }
 }
-
-const hobbit = new book('The Hobbit','J.RR. Tolkien', '255 pages', 'not read yet');
-const book1 = new book('Book1','Me', '100', 'read');
-const book2 = new book('Book2','Me', '100', 'read');
-const book3 = new book('Book3','Me', '100', 'not read yet');
-
-
-addBookToLibrary(hobbit);
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
 
 submitButton.addEventListener('click',()=>{
-    let newBook = new book(title.value,author.value,pages.value,'read');
-    addBookToLibrary(newBook);
-    //refershGrid();
+    let newBook = new book(title.value,author.value,pages.value,myLibrary.length);
+    myLibrary.push(newBook);
     closeForm();
+    populateGrid();
 });
