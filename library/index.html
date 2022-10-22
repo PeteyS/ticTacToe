@@ -13,12 +13,11 @@
 
             </header>
             <main>
-                <div class="openBtn">
-                    <button class="openButton" onclick="openForm()"><strong>Open Form</strong></button>
-                </div>
-                <div class="loginPopup" id="loginForm">
+                <button class= "openButton" onclick="showForm()">Open Popup</button>
+                <div class="popup">
+                    <div class="blocker" onclick="hideForm()"></div>
                     <div class="formPopup" id="popupForm">
-                        <form action="/action_page.php" class="formContainer">
+                        <form class="formContainer">
                             <h2>Information</h2>
                             <div class="inputF">
                                 <label for="author">
@@ -38,14 +37,8 @@
                                 </label>
                                 <input type="number" id="pages" placeholder="Number of pages" name="pages" required>
                             </div>
-                            <div class="inputF">
-                                <label for="readStatus">
-                                    <strong>Read Status</strong>
-                                </label>
-                                <input type="checkbox" id="readStatus" placeholder="Has this book been read" name="readStatus" value="read" required>
-                            </div>
-                            <button type="button" class="btn" id="submitBtn">Submit</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                            <button class="btn" id="submitBtn">Submit</button>
+                            <button class="btn cancel" id="cancelBtn">Close</button>
                         </form>
                     </div>
                 </div>

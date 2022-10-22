@@ -12,12 +12,12 @@ html,body{
 header{
     flex:1;
     min-height: 100px;
-    max-height: 300px;
+    max-height: 150px;
     background-color: brown;
     display: flex;
 }
 main{
-    flex: 3;
+    flex: 1;
     background-color: olive;
     display: flex;
     flex-direction: column;
@@ -27,8 +27,9 @@ main{
 #grid {
     background-color: white;
     min-width: 500px;
-    width: calc(100px + 70vw);
-    height: 600px;
+    max-width: 90%;
+    width: calc(300px + 75vw);
+    height: 700px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     flex-direction: column-reverse;
@@ -36,7 +37,7 @@ main{
     overflow: auto;
     column-gap: 10px;
     row-gap: 5px;
-    margin-bottom: 10px;
+
 
 }
 .cards{
@@ -69,18 +70,19 @@ main{
     background-color: #1c87c9;
     color: white;
     padding: 14px 20px;
-    margin: 10px;
+    margin-bottom: 20px;
     cursor: pointer;
     position: relative;
     box-sizing: border-box;
 }
+
 .loginPopup {
-    position: relative;
+    position: fixed;
     text-align: center;
     box-sizing: border-box;
+    
 }
 .formPopup {
-    display: none;
     position: fixed;
     left: 50%;
     top: 20%;
@@ -136,4 +138,28 @@ background-color: #8ebf42;
     flex-direction: column;
     height: 70px;
     justify-content: space-evenly;
+}
+
+.popup { display: none; }
+.popup.open { display: block; }.blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0,0,0,.5);
+}
+.popup .contents {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
 }
