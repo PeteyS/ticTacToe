@@ -2,6 +2,9 @@ html,body{
     margin: 0;
     padding: 0;
 }
+* {
+    font-family: 'Roboto', sans-serif;
+}
 #container{
     width: 100vw;
     height: 100vh;
@@ -13,12 +16,19 @@ header{
     flex:1;
     min-height: 100px;
     max-height: 150px;
-    background-color: brown;
+    background-color: white;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px solid #1c87c9;
+}
+#mainTitle{
+    color: #1c87c9;
+    font-size:50px;
 }
 main{
     flex: 1;
-    background-color: olive;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,23 +51,36 @@ main{
 
 }
 .cards{
-    margin-left: 10px;
+    margin-top: 15px;
+    margin-left: 15px;
     width: 230px;
     height: 230px;
-    background-color: #EF4444;
+    border: 3px solid #1c87c9;
     border-radius: 5px;
     margin-bottom: 5px;
-    box-shadow: 5px 5px #5a1313;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+    color:#1c87c9;
+}
+.cards:hover{
+    transform: scale(1.1);
 }
 .deleteBtn{
     display: flex;
-    width: 50px;
-    height: 25px;
-    background-color: red;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid #1c87c9;
+    color: #1c87c9;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+}
+.deleteBtn:hover{
+    transform: scale(1.5);
+    background-color: #d4d1d1;
 }
 .openBtn {
     display: flex;
@@ -65,15 +88,19 @@ main{
     box-sizing: border-box;
 }
 .openButton {
-    border: none;
+    border: 3px solid #1c87c9;
+    background-color: white;
     border-radius: 5px;
-    background-color: #1c87c9;
-    color: white;
+    color: #1c87c9;
     padding: 14px 20px;
     margin-bottom: 20px;
     cursor: pointer;
     position: relative;
     box-sizing: border-box;
+}
+.openButton:hover{
+    transform: scale(1.2);
+    background-color: #d4d1d1;
 }
 
 .loginPopup {
@@ -87,41 +114,52 @@ main{
     left: 50%;
     top: 20%;
     transform: translate(-50%, 5%);
-    border: 3px solid #999999;
+    border: 3px solid #1c87c9;
+    border-radius: 5px;
+    color: #1c87c9;
     z-index: 9;
     box-sizing: border-box;
 }
 .formContainer {
     max-width: 300px;
     padding: 20px;
+    border-radius: 5px;
     background-color: #fff;
     box-sizing: border-box;
 }
 .formContainer input[type=text],
-.formContainer input[type=password] {
+.formContainer input[type=password],
+.formContainer input[type=number] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 0 0;
-    border: none;
+    border:none;
+    border-radius: 5px;
     background: #eee;
     box-sizing: border-box;
 }
 .formContainer input[type=text]:focus,
-.formContainer input[type=password]:focus {
+.formContainer input[type=password]:focus,
+.formContainer input[type=number]:focus {
     background-color: #ddd;
     outline: none;
     box-sizing: border-box;
 }
 .formContainer .btn {
-padding: 12px 20px;
-border: none;
-background-color: #8ebf42;
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    background-color:white;
+    background-color: #1c87c9;
     color: #fff;
     cursor: pointer;
     width: 100%;
     margin-bottom: 15px;
     opacity: 0.8;
     box-sizing: border-box;
+}
+#submitBtn{
+    margin-top: 30px;
 }
 .formContainer .cancel {
     background-color: #cc0000;

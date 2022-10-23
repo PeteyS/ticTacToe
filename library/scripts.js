@@ -45,10 +45,11 @@ function makeCard(book){
     let removeButton = create('button');
     removeButton.dataset.index = book.index;
     removeButton.classList.add('deleteBtn');
+    removeButton.textContent = "X";
 
-    cardTitle.textContent = book.title;
-    cardAuthor.textContent = book.author;
-    cardPages.textContent = book.pages;
+    cardTitle.textContent = "Title: " + book.title;
+    cardAuthor.textContent = "Author: " + book.author;
+    cardPages.textContent = "Pages: " + book.pages;
 
     newCard.appendChild(cardTitle);
     newCard.appendChild(cardAuthor);
