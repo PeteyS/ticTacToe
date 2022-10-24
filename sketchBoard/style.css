@@ -1,0 +1,128 @@
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+
+
+#topBar{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#chooseColour,#shader,#rgb,#erase,#reset{
+    width: 15%;
+    height: 50%;
+    min-height: 60px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-family: 'Shizuru', 'Times New Roman', Times, serif;
+    font-size: 250%;
+}
+
+#shader:hover,#rgb:hover,#erase:hover,#chooseColour:hover,#colour:hover{
+    transform: scale(1.2);
+    border: solid 1px;
+    border-color: black;
+    box-shadow: -5px 5px #888888;
+}
+#shader:active,#rgb:active,#erase:active,#chooseColour:active,#colour:active{
+    transform: scale(1);    
+}
+#colour{
+    padding: 0;
+    border:none;
+    box-shadow: -3px 2px #888888;
+}
+
+
+
+
+
+#container{
+    flex: 1;
+    display: flex;
+}
+#sideBar{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+#big,#medium,#small{
+    height: 20%;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Shizuru', 'Times New Roman', Times, serif;
+    font-size: 42px;
+    border-radius: 5px;
+}
+#big:hover,#medium:hover,#small:hover{
+    transform: scale(1.2);
+    border:solid 1px;
+    border-color: black;
+    box-shadow: -5px 5px #888888;
+}
+#big:active,#medium:active,#small:active{
+    transform: scale(1.1);
+}
+
+
+
+
+#mainContent{
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+
+}
+#canvas{
+    height: 650px;
+    width: 650px;
+    display: grid;
+    border: solid 2px;
+    border-color:black;
+    box-shadow: -7px 10px #888888;
+}
+#title{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#active{
+    color: green;
+}
+#unactive{
+    color: black;
+}
+#sketcher{
+    font-family: 'Shizuru', 'Times New Roman', Times, serif;
+    font-size: 52px;
+}
+#instructions{
+    font-size: 12px;
+}
