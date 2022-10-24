@@ -66,7 +66,7 @@ body,html{
     transform: rotate(-3deg);
     
 }
-.op:hover{
+.op:hover, .deci:hover{
     background-color: rgb(81, 126, 223);
 }
 .del:hover{
@@ -85,6 +85,10 @@ body,html{
     background-color: rgb(134, 231, 85);
     border: solid 1px;
     box-shadow: -2px 2px 3px rgb(2, 134, 19);
+    display: flex;
+    font-size:xx-large;
+    justify-content: flex-end;
+    align-items:flex-end;
 }
 #ac{
     grid-area: ac;

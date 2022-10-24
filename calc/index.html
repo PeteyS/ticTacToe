@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src='script.js'></script>
+        <script src='script.js' defer></script>
         <link rel="stylesheet" href="style.css">
         <title>Calculator</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +11,7 @@
     <body>
         <div id="calc">
             <div id="display">
-
+                <p id="show">s</p>
             </div>
             <btn class="btn left del" id="ac" value = "clear" data-type = 'del'>AC</btn>
             <btn class="btn right del" id="ce" value = 'delete' data-type = 'del'>DEL</btn>
@@ -29,7 +29,7 @@
             <btn class="btn right num" id="two" value = '2' data-type = 'number'>2</btn>
             <btn class="btn left num" id="one" value = '1' data-type = 'number'>1</btn>
             <btn class="btn right num" id="zero" value = '0' data-type = 'number'>0</btn>
-            <btn class="btn left num" id="decimal" value = '.' data-type = 'op'>.</btn>
+            <btn class="btn left deci" id="decimal" value = '.' data-type = 'op'>.</btn>
             <btn class="btn right op" id="equals" value = '=' data-type = 'op'>=</btn>
             <btn class="btn left op" id="add" value = '+'data-type = 'op'>+</btn>
             
