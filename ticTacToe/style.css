@@ -1,0 +1,107 @@
+html,body{
+    padding: 0;
+    margin: 0;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+header{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#title{
+    margin-top: 50px;
+}
+main{
+    flex:6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#gameGrid{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-top: 25px;
+}
+.square{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-side{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.middle{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+.right-side{
+    border-bottom:1px solid black;
+}
+.left-side-bottom{
+    border-right: 1px solid black;;
+}
+.right-side-bottom{
+    border-left: 1px solid black;
+}
+
+footer{
+    margin-top: 75px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#player1,#player2{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#startStop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.startScreen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color:beige;
+}
+#start{
+    width: 400px;
+    height: 200px;
+}
+.top{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+.bottom{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
