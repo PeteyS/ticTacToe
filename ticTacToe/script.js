@@ -6,6 +6,7 @@ let Player = (name,mark)=>{
 
 let board = (()=>{
     let gameArray = ["","","","","","","","",""];
+
     function returnArray (){
         return gameArray;
     }
@@ -22,7 +23,8 @@ let board = (()=>{
 
 let display = (()=>{
     let displayGrid = document.querySelectorAll('.displayMark');
-    let outcome = document.querySelector('#outcome');
+    let outcome = document.querySelectorAll('#outcome');
+
     function drawBoard(array){
         for(let i =0;i<displayGrid.length;i++){
             displayGrid[i].textContent = array[i];
@@ -33,9 +35,10 @@ let display = (()=>{
             outcome.textContent = 'DRAW';
         }
         else if(mark == 'x' || mark == 'o'){
-            outcome.textContent = mark.toUpperCase() + ' WINS';
+            outcome.textContent = mark + 'WINS';
         }
     }
+
     return{
         drawBoard,displayWinner
     }
@@ -44,11 +47,11 @@ let display = (()=>{
 let gameControl = (()=>{
     let player1 = Player('John','x');
     let player2 = Player('Doe','o');
-    let outcome = document.querySelector('#outcome');
+    let outcome;
     let turn = 1;
     let winConditions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
     let grid = document.querySelectorAll('.square');
-    let restart = document.querySelector('#restart');
+
     function checkForWin(array){
         for (let i=0;i<winConditions.length;i++){
             if(array[winConditions[i][0]] == 'x' && array[winConditions[i][1]] == 'x' &&
@@ -61,7 +64,7 @@ let gameControl = (()=>{
     }
     function checkForDraw(array){
         for(let i=0;i<array.length;i++){
-            if(array[i]==''){
+            if(game[i]==''){
                 return false;
             }
         }
@@ -69,38 +72,32 @@ let gameControl = (()=>{
     }
     grid.forEach(square => {
         square.addEventListener('click', ()=>{
-            outcome.textContent = '';
             if (board.returnArray()[square.dataset.number] == ""){
                 if(turn%2 == 1){
-                    board.returnArray()[square.dataset.number] = player1.mark; 
-                    display.drawBoard(board.returnArray());
+                    board.returnArray()[square.dataset.number] == player1.mark; 
+                    display.drawBoard(board.returnArray);
                     turn++;
                 }
-                else if(turn%2 == 0){
-                    board.returnArray()[square.dataset.number] = player2.mark;
-                    display.drawBoard(board.returnArray());
+                else if(turn%2 == 2){
+                    board.returnArray()[square.dataset.number] == player2.mark;
+                    display.drawBoard(board.returnArray);
                     turn++;
                 }
             }
-            if(checkForWin(board.returnArray())=='x'|| checkForWin(board.returnArray())=='o'){
-                display.displayWinner(checkForWin(board.returnArray()));
+            if(checkForWin(board.returnArray)=='x'|| checkForWin(board.returnArray)=='o'){
+                display.displayWinner(checkForWin(board.returnArray));
                 turn = 1;
-                board.resetArray();
-                setTimeout(display.drawBoard(board.returnArray()), 3000);
+                setTimeout(board.resetArray(),1000)
+                display.drawBoard(board.returnArray);
             }
-            else if(checkForDraw(board.returnArray()) == 'draw'){
-                display.displayWinner(checkForDraw(board.returnArray()));
+            else if(checkForDraw(board.returnArray) == 'draw'){
+                display.displayWinner(checkForDraw(board.returnArray));
                 turn = 1;
-                board.resetArray();
-                setTimeout(display.drawBoard(board.returnArray()), 3000);
+                setTimeout(board.resetArray(),1000)
+                display.drawBoard(board.returnArray);
             }
         })
     })
-    restart.addEventListener('click',()=>{
-        turn = 1;
-        board.resetArray();
-        display.drawBoard(board.returnArray());
-        outcome.textContent = '';
-    })
+
 
 })()
