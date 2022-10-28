@@ -3,7 +3,6 @@ let Player = (name,mark)=>{
         name,mark
     };
 }
-
 let board = (()=>{
     let gameArray = ["","","","","","","","",""];
     function returnArray (){
@@ -12,14 +11,10 @@ let board = (()=>{
     function resetArray (){
         gameArray = ["","","","","","","","",""];
     }
-    function changeArray(index,mark){
-        gameArray[index] = mark;
-    }
     return{
-        returnArray,resetArray,changeArray
+        returnArray,resetArray
     }
 })();
-
 let display = (()=>{
     let displayGrid = document.querySelectorAll('.displayMark');
     let outcome = document.querySelector('#outcome');
@@ -40,7 +35,6 @@ let display = (()=>{
         drawBoard,displayWinner
     }
 })();
-
 let gameControl = (()=>{
     let player1 = Player('John','x');
     let player2 = Player('Doe','o');
@@ -67,40 +61,46 @@ let gameControl = (()=>{
         }
         return 'draw';
     }
-    grid.forEach(square => {
-        square.addEventListener('click', ()=>{
-            outcome.textContent = '';
-            if (board.returnArray()[square.dataset.number] == ""){
-                if(turn%2 == 1){
-                    board.returnArray()[square.dataset.number] = player1.mark; 
-                    display.drawBoard(board.returnArray());
-                    turn++;
+    function play(){
+        grid.forEach(square => {
+            square.addEventListener('click', ()=>{
+                outcome.textContent = '';
+                if (board.returnArray()[square.dataset.number] == ""){
+                    if(turn%2 == 1){
+                        board.returnArray()[square.dataset.number] = player1.mark; 
+                        display.drawBoard(board.returnArray());
+                        turn++;
+                    }
+                    else if(turn%2 == 0){
+                        board.returnArray()[square.dataset.number] = player2.mark;
+                        display.drawBoard(board.returnArray());
+                        turn++;
+                    }
                 }
-                else if(turn%2 == 0){
-                    board.returnArray()[square.dataset.number] = player2.mark;
-                    display.drawBoard(board.returnArray());
-                    turn++;
+                if(checkForWin(board.returnArray())=='x'|| checkForWin(board.returnArray())=='o'){
+                    display.displayWinner(checkForWin(board.returnArray()));
+                    turn = 1;
+                    board.resetArray();
+                    setTimeout(display.drawBoard(board.returnArray()), 3000);
                 }
-            }
-            if(checkForWin(board.returnArray())=='x'|| checkForWin(board.returnArray())=='o'){
-                display.displayWinner(checkForWin(board.returnArray()));
-                turn = 1;
-                board.resetArray();
-                setTimeout(display.drawBoard(board.returnArray()), 3000);
-            }
-            else if(checkForDraw(board.returnArray()) == 'draw'){
-                display.displayWinner(checkForDraw(board.returnArray()));
-                turn = 1;
-                board.resetArray();
-                setTimeout(display.drawBoard(board.returnArray()), 3000);
-            }
+                else if(checkForDraw(board.returnArray()) == 'draw'){
+                    display.displayWinner(checkForDraw(board.returnArray()));
+                    turn = 1;
+                    board.resetArray();
+                    setTimeout(display.drawBoard(board.returnArray()), 3000);
+                }
+            })
         })
-    })
-    restart.addEventListener('click',()=>{
-        turn = 1;
-        board.resetArray();
-        display.drawBoard(board.returnArray());
-        outcome.textContent = '';
-    })
-
+        restart.addEventListener('click',()=>{
+            turn = 1;
+            board.resetArray();
+            display.drawBoard(board.returnArray());
+            outcome.textContent = '';
+        })
+    }
+    return{
+        checkForWin,checkForDraw,play
+    }
 })()
+
+gameControl.play();
