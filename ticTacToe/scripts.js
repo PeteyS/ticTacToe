@@ -81,13 +81,13 @@ let gameControl = (()=>{
                     display.displayWinner(checkForWin(board.returnArray()));
                     turn = 1;
                     board.resetArray();
-                    setTimeout(display.drawBoard(board.returnArray()), 3000);
+                    setTimeout(()=>{display.drawBoard(board.returnArray())}, 1000);
                 }
                 else if(checkForDraw(board.returnArray()) == 'draw'){
                     display.displayWinner(checkForDraw(board.returnArray()));
                     turn = 1;
                     board.resetArray();
-                    setTimeout(display.drawBoard(board.returnArray()), 3000);
+                    setTimeout(()=>{display.drawBoard(board.returnArray())}, 1000);
                 }
             })
         })
